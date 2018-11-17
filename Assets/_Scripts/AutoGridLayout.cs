@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AutoGridLayout : GridLayoutGroup
 {
     [SerializeField]
-    private bool m_IsColumn;
+    private bool m_IsColumn = false;
     [SerializeField]
     private int m_Column = 1, m_Row = 1;
     public override void CalculateLayoutInputHorizontal()
