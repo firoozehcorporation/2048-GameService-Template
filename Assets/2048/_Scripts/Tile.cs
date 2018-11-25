@@ -26,6 +26,8 @@ namespace _2048._Scripts
         private Text _tileText;
         private Image _tileImage;
 
+        public bool MergedThisTurn = false;
+        
         public int IndexForRow;
         public int IndexForColumn;
         

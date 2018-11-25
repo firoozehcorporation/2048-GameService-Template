@@ -17,43 +17,19 @@ namespace _2048._Scripts
         {
             if(Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Move(MoveDirection.Up);
+                GameManager.Instance.Move(MoveDirection.Up);
             }
             else if(Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Move(MoveDirection.Down);
+                GameManager.Instance.Move(MoveDirection.Down);
             }
             else if(Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                Move(MoveDirection.Left);
+                GameManager.Instance.Move(MoveDirection.Left);
             }
             else if(Input.GetKeyDown(KeyCode.RightArrow))
             {
-                Move(MoveDirection.Right);
-            }
-        }
-
-        private void Move(MoveDirection direction)
-        {
-            switch(direction)
-            {
-                case MoveDirection.Left:
-                    Debug.Log("Move Left");
-                    break;
-
-                case MoveDirection.Right:
-                    Debug.Log("Move Right");
-                    break;
-
-                case MoveDirection.Up:
-                    Debug.Log("Move Up");
-                    break;
-
-                case MoveDirection.Down:
-                    Debug.Log("Move Down");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+                GameManager.Instance.Move(MoveDirection.Right);
             }
         }
     }
