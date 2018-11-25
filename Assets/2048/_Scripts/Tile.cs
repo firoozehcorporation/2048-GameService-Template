@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace _2048._Scripts
 {
+    [RequireComponent(typeof(Animator))]
     public class Tile : MonoBehaviour
     {
         private int _number;
@@ -30,11 +31,14 @@ namespace _2048._Scripts
         
         public int IndexForRow;
         public int IndexForColumn;
+
+        private Animator _animator;
         
         private void Awake()
         {
             _tileText = GetComponentInChildren<Text>();
             _tileImage = transform.Find("NumberedCell").GetComponent<Image>();
+            _animator = GetComponent<Animator>();
         }
 
         private void ApplyStyleFromHolder(int index)
@@ -68,17 +72,15 @@ namespace _2048._Scripts
             _tileImage.enabled = false;
             _tileText.enabled = false;
         }
-        
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
+        public void Play_MergedAnimation()
         {
+            _animator.SetTrigger("Merge");
+        }
         
+        public void Play_AppearAnimation()
+        {
+            _animator.SetTrigger("Appear");
         }
     }
 }

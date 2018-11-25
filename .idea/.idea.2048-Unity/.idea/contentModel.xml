@@ -16,6 +16,7 @@
             <e p="ScoreTracker.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
             <e p="TileStyleHolder.cs" t="Include" />
+            <e p="TouchInputManager.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
             <e p="AutoGridLayoutEditor.cs" t="Include" />

@@ -4,17 +4,12 @@ using UnityEngine;
 namespace _2048._Scripts
 {
     public enum MoveDirection { Left, Right, Up, Down }
+    #if UNITY_EDITOR
     public class InputManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        private void Start()
-        {
-        
-        }
-
         // Update is called once per frame
         private void Update()
-        {
+        {   
             if(Input.GetKeyDown(KeyCode.UpArrow))
             {
                 GameManager.Instance.Move(MoveDirection.Up);
@@ -33,5 +28,6 @@ namespace _2048._Scripts
             }
         }
     }
+    #endif
 }
 

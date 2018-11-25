@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 1267632}
   - component: {fileID: 1267631}
   - component: {fileID: 1267633}
+  - component: {fileID: 1267634}
   m_Layer: 5
   m_Name: Tile (2)
   m_TagString: Untagged
@@ -203,6 +204,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 0
   IndexForColumn: 2
+--- !u!95 &1267634
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &13779950
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +286,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -345,7 +365,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -373,6 +393,7 @@ GameObject:
   - component: {fileID: 43961952}
   - component: {fileID: 43961951}
   - component: {fileID: 43961953}
+  - component: {fileID: 43961954}
   m_Layer: 5
   m_Name: Tile (12)
   m_TagString: Untagged
@@ -452,6 +473,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 3
   IndexForColumn: 0
+--- !u!95 &43961954
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43961949}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &66065821
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +919,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1157,7 +1197,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1185,6 +1225,7 @@ GameObject:
   - component: {fileID: 269891121}
   - component: {fileID: 269891120}
   - component: {fileID: 269891122}
+  - component: {fileID: 269891123}
   m_Layer: 5
   m_Name: Tile (7)
   m_TagString: Untagged
@@ -1264,6 +1305,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 1
   IndexForColumn: 3
+--- !u!95 &269891123
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269891118}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &283532737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1387,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1968,6 +2028,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da902c8038d53148ac3b6cea26513fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  State: 0
+  Delay: 0.05
+  _moveMade: 0
+  _lineMoveComplete: 01010101
   GameOverScoreText: {fileID: 173808579}
   GameOverPanel: {fileID: 1127919033}
   GameWonPanel: {fileID: 419017152}
@@ -1985,6 +2049,7 @@ GameObject:
   - component: {fileID: 429584021}
   - component: {fileID: 429584020}
   - component: {fileID: 429584022}
+  - component: {fileID: 429584023}
   m_Layer: 5
   m_Name: Tile (14)
   m_TagString: Untagged
@@ -2064,6 +2129,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 3
   IndexForColumn: 2
+--- !u!95 &429584023
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429584018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &449207692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,6 +2160,7 @@ GameObject:
   - component: {fileID: 449207695}
   - component: {fileID: 449207694}
   - component: {fileID: 449207696}
+  - component: {fileID: 449207697}
   m_Layer: 5
   m_Name: Tile (1)
   m_TagString: Untagged
@@ -2155,6 +2240,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 0
   IndexForColumn: 1
+--- !u!95 &449207697
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449207692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &533372037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2322,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2490,6 +2594,7 @@ GameObject:
   - component: {fileID: 573067555}
   - component: {fileID: 573067554}
   - component: {fileID: 573067556}
+  - component: {fileID: 573067557}
   m_Layer: 5
   m_Name: Tile (10)
   m_TagString: Untagged
@@ -2569,6 +2674,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 2
   IndexForColumn: 2
+--- !u!95 &573067557
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573067552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &584400597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,6 +2705,7 @@ GameObject:
   - component: {fileID: 584400600}
   - component: {fileID: 584400599}
   - component: {fileID: 584400601}
+  - component: {fileID: 584400602}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Untagged
@@ -2660,6 +2785,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 0
   IndexForColumn: 0
+--- !u!95 &584400602
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584400597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &642308337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,15 +3138,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
+    m_Left: 20
+    m_Right: 20
+    m_Top: 20
+    m_Bottom: 20
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 88.83525, y: 88.83525}
-  m_Spacing: {x: 10, y: 10}
+  m_CellSize: {x: 76.33525, y: 76.33525}
+  m_Spacing: {x: 20, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
   _isColumn: 0
@@ -3056,7 +3200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16875006, y: 0}
   m_AnchorMax: {x: 0.87100005, y: 0.60800004}
-  m_AnchoredPosition: {x: -0.4999962, y: 0}
+  m_AnchoredPosition: {x: -0.5, y: 0}
   m_SizeDelta: {x: 0.63000107, y: -0.5100002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &700794858
@@ -3239,7 +3383,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3267,6 +3411,7 @@ GameObject:
   - component: {fileID: 774361798}
   - component: {fileID: 774361797}
   - component: {fileID: 774361799}
+  - component: {fileID: 774361800}
   m_Layer: 5
   m_Name: Tile (8)
   m_TagString: Untagged
@@ -3346,6 +3491,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 2
   IndexForColumn: 0
+--- !u!95 &774361800
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774361795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &779650931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,7 +3573,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3663,6 +3827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833803725}
   - component: {fileID: 833803724}
+  - component: {fileID: 833803726}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -3696,6 +3861,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833803726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833803723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6013a129b759bb44bd6a99a734f3dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &907800924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,7 +4096,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3947,6 +4124,7 @@ GameObject:
   - component: {fileID: 945142737}
   - component: {fileID: 945142736}
   - component: {fileID: 945142738}
+  - component: {fileID: 945142739}
   m_Layer: 5
   m_Name: Tile (6)
   m_TagString: Untagged
@@ -4026,6 +4204,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 1
   IndexForColumn: 2
+--- !u!95 &945142739
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945142734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1003863873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,7 +4295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.42968878, y: 0.86800003}
   m_AnchorMax: {x: 0.679, y: 0.9364817}
-  m_AnchoredPosition: {x: 0.19999695, y: -0.24239993}
+  m_AnchoredPosition: {x: 0.19999695, y: -0.24240112}
   m_SizeDelta: {x: 0.18, y: -0.36240005}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1069051184
@@ -4419,7 +4616,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4447,6 +4644,7 @@ GameObject:
   - component: {fileID: 1284590987}
   - component: {fileID: 1284590986}
   - component: {fileID: 1284590988}
+  - component: {fileID: 1284590989}
   m_Layer: 5
   m_Name: Tile (15)
   m_TagString: Untagged
@@ -4526,6 +4724,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 3
   IndexForColumn: 3
+--- !u!95 &1284590989
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284590984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1288894345
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4755,7 @@ GameObject:
   - component: {fileID: 1288894348}
   - component: {fileID: 1288894347}
   - component: {fileID: 1288894349}
+  - component: {fileID: 1288894350}
   m_Layer: 5
   m_Name: Tile (13)
   m_TagString: Untagged
@@ -4617,6 +4835,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 3
   IndexForColumn: 1
+--- !u!95 &1288894350
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288894345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1329969509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,7 +4946,7 @@ GameObject:
   - component: {fileID: 1347477527}
   - component: {fileID: 1347477526}
   m_Layer: 5
-  m_Name: ContinueButton
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4859,7 +5096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08433933, y: 0}
   m_AnchorMax: {x: 0.9156787, y: 1}
-  m_AnchoredPosition: {x: 0.26999664, y: 0}
+  m_AnchoredPosition: {x: 0.269989, y: 0}
   m_SizeDelta: {x: 0.5799999, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1364194609
@@ -5096,7 +5333,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5431,7 +5668,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5459,6 +5696,7 @@ GameObject:
   - component: {fileID: 1547939960}
   - component: {fileID: 1547939959}
   - component: {fileID: 1547939961}
+  - component: {fileID: 1547939962}
   m_Layer: 5
   m_Name: Tile (11)
   m_TagString: Untagged
@@ -5538,6 +5776,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 2
   IndexForColumn: 3
+--- !u!95 &1547939962
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547939957}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1643529407
 GameObject:
   m_ObjectHideFlags: 0
@@ -5550,6 +5807,7 @@ GameObject:
   - component: {fileID: 1643529410}
   - component: {fileID: 1643529409}
   - component: {fileID: 1643529411}
+  - component: {fileID: 1643529412}
   m_Layer: 5
   m_Name: Tile (4)
   m_TagString: Untagged
@@ -5629,6 +5887,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 1
   IndexForColumn: 0
+--- !u!95 &1643529412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643529407}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1730736836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5641,6 +5918,7 @@ GameObject:
   - component: {fileID: 1730736839}
   - component: {fileID: 1730736838}
   - component: {fileID: 1730736840}
+  - component: {fileID: 1730736841}
   m_Layer: 5
   m_Name: Tile (3)
   m_TagString: Untagged
@@ -5720,6 +5998,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 0
   IndexForColumn: 3
+--- !u!95 &1730736841
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730736836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1806874426
 GameObject:
   m_ObjectHideFlags: 0
@@ -5858,7 +6155,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5937,7 +6234,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6040,6 +6337,7 @@ GameObject:
   - component: {fileID: 1890536435}
   - component: {fileID: 1890536434}
   - component: {fileID: 1890536436}
+  - component: {fileID: 1890536437}
   m_Layer: 5
   m_Name: Tile (9)
   m_TagString: Untagged
@@ -6119,6 +6417,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 2
   IndexForColumn: 1
+--- !u!95 &1890536437
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890536432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1909221578
 GameObject:
   m_ObjectHideFlags: 0
@@ -6361,7 +6678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1963999779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6481,7 +6798,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6509,6 +6826,7 @@ GameObject:
   - component: {fileID: 1997727330}
   - component: {fileID: 1997727329}
   - component: {fileID: 1997727331}
+  - component: {fileID: 1997727332}
   m_Layer: 5
   m_Name: Tile (5)
   m_TagString: Untagged
@@ -6588,6 +6906,25 @@ MonoBehaviour:
   MergedThisTurn: 0
   IndexForRow: 1
   IndexForColumn: 1
+--- !u!95 &1997727332
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997727327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 290c3fbd85d69be43bc831e3e350ff1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2003248253
 GameObject:
   m_ObjectHideFlags: 0
@@ -6651,7 +6988,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6816,7 +7153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CONTINUE
+  m_Text: RESTART
 --- !u!222 &2105390140
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -8,4 +8,6 @@
 6. Change the string Find NumberedCell in Tile to something that is not a string dependent.
 7. Tile _tileImage is getting NumberedCell by searching through a name. This should not be happening.
 8. In GameManager, the allTiles array is currently getting static variables. This should not be the case.
-9. I manually put the index of tiles for row and column. Need to find a way to automate it. 
+9. I manually put the index of tiles for row and column. Need to find a way to automate it.
+10. Replace all animations to using tweens for both appearence and merges.
+11. Change playerprefs to actual file storage. 

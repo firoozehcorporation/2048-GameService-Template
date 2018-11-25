@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sourav.Utilities.Extensions;
@@ -8,8 +9,21 @@ using Random = UnityEngine.Random;
 
 namespace _2048._Scripts
 {
+    public enum GameState
+    {
+        Playing,
+        GameOver,
+        WaitingForMoveToEnd
+    }
+    
     public class GameManager : MonoBehaviour
     {
+        public GameState State;
+        [Range(0, 2f)]
+        public float Delay;
+        [SerializeField]private bool _moveMade;
+        [SerializeField]private bool[] _lineMoveComplete = new bool[4]{ true, true, true, true };
+        
         public Text GameOverScoreText;
         public GameObject GameOverPanel;
 
@@ -34,15 +48,14 @@ namespace _2048._Scripts
             Instance = this;
         }
 
-        void Start()
+        private void Start()
         {
             StartNewGame();
         }
 
         public void StartNewGame()
         {
-            //Clear the gamefield
-            _disableInput = false;
+            State = GameState.Playing;
             _has2048Reached = false;
             GameOverPanel.Hide();
             GameWonPanel.Hide();
@@ -75,8 +88,8 @@ namespace _2048._Scripts
 
         public void ContinuePlayingUponWinning()
         {
+            State = GameState.Playing;
             GameWonPanel.Hide();
-            _disableInput = false;
         }
 
         private void YouWon()
@@ -84,8 +97,8 @@ namespace _2048._Scripts
             if (!_has2048Reached)
             {
                 GameWonPanel.Show();
-                _disableInput = true;
                 _has2048Reached = true;
+                State = GameState.GameOver;
             }
         }
         
@@ -93,7 +106,7 @@ namespace _2048._Scripts
         {
             GameOverScoreText.text = ScoreTracker.Score.ToString();
             GameOverPanel.Show();
-            _disableInput = true;
+            State = GameState.GameOver;
         }
 
         private bool CanMove()
@@ -126,9 +139,9 @@ namespace _2048._Scripts
             }
         }
         
-        private bool MakeOneMoveDownIndex(Tile[] lineOfTiles)
+        private bool MakeOneMoveDownIndex(IReadOnlyList<Tile> lineOfTiles)
         {
-            for (int i = 0; i < lineOfTiles.Length - 1; i++)
+            for (int i = 0; i < lineOfTiles.Count - 1; i++)
             {
                 //Move block 
                 if (lineOfTiles[i].Number == 0 && lineOfTiles[i + 1].Number != 0)
@@ -147,6 +160,7 @@ namespace _2048._Scripts
 
                     lineOfTiles[i].MergedThisTurn = true;
                     lineOfTiles[i + 1].MergedThisTurn = true;
+                    lineOfTiles[i].Play_MergedAnimation();
                     ScoreTracker.Score += lineOfTiles[i].Number;
 
                     if (lineOfTiles[i].Number == 2048)
@@ -162,9 +176,9 @@ namespace _2048._Scripts
             return false;
         }
 
-        private bool MakeOneMoveUpIndex(Tile[] lineOfTiles)
+        private bool MakeOneMoveUpIndex(IReadOnlyList<Tile> lineOfTiles)
         {
-            for (int i = lineOfTiles.Length - 1; i > 0; i--)
+            for (int i = lineOfTiles.Count - 1; i > 0; i--)
             {
                 //Move block 
                 if (lineOfTiles[i].Number == 0 && lineOfTiles[i - 1].Number != 0)
@@ -183,6 +197,7 @@ namespace _2048._Scripts
 
                     lineOfTiles[i].MergedThisTurn = true;
                     lineOfTiles[i - 1].MergedThisTurn = true;
+                    lineOfTiles[i].Play_MergedAnimation();
                     ScoreTracker.Score += lineOfTiles[i].Number;
 
                     if (lineOfTiles[i].Number == 2048)
@@ -228,6 +243,7 @@ namespace _2048._Scripts
                     //FIXME remove the hardcoded number
                     _emptyTiles[indexForNewNumber].Number = 2;
                 }
+                _emptyTiles[indexForNewNumber].Play_AppearAnimation();
                 _emptyTiles.RemoveAt(indexForNewNumber);
             }
         }
@@ -246,43 +262,102 @@ namespace _2048._Scripts
 
         public void Move(MoveDirection moveDirection)
         {
-            if(_disableInput) return;
+            if (!_moveMade && State == GameState.WaitingForMoveToEnd)
+                State = GameState.Playing;
             
-            bool moveMade = false;
+            if (State != GameState.Playing)
+                return;
+            
             ResetMergedFlags();
-            
-            for (int i = 0; i < _rows.Count; i++)
+
+            if (Delay > 0)
             {
-                switch (moveDirection)
+                //Start coroutine to simulate delay
+                StartCoroutine(MoveCoroutine(moveDirection));
+            }
+            else
+            {
+                for (int i = 0; i < _rows.Count; i++)
                 {
-                    case MoveDirection.Left:
-                        while (MakeOneMoveDownIndex(_rows[i]))
-                        {
-                            moveMade = true;
-                        }
-                        break;
-                    case MoveDirection.Right:
-                        while (MakeOneMoveUpIndex(_rows[i]))
-                        {
-                            moveMade = true;
-                        }
-                        break;
-                    case MoveDirection.Up:
-                        while (MakeOneMoveDownIndex(_columns[i]))
-                        {
-                            moveMade = true;
-                        }
-                        break;
-                    case MoveDirection.Down:
-                        while (MakeOneMoveUpIndex(_columns[i]))
-                        {
-                            moveMade = true;
-                        }
-                        break;
+                    switch (moveDirection)
+                    {
+                        case MoveDirection.Left:
+                            while (MakeOneMoveDownIndex(_rows[i]))
+                            {
+                                _moveMade = true;
+                            }
+                            break;
+                        case MoveDirection.Right:
+                            while (MakeOneMoveUpIndex(_rows[i]))
+                            {
+                                _moveMade = true;
+                            }
+                            break;
+                        case MoveDirection.Up:
+                            while (MakeOneMoveDownIndex(_columns[i]))
+                            {
+                                _moveMade = true;
+                            }
+                            break;
+                        case MoveDirection.Down:
+                            while (MakeOneMoveUpIndex(_columns[i]))
+                            {
+                                _moveMade = true;
+                            }
+                            break;
+                    }
                 }
+                if (_moveMade)
+                {
+                    UpdateEmptyTiles();
+                    Generate();
+        
+                    if (!CanMove())
+                    {
+                        GameOver();
+                    }
+                }
+                _moveMade = false;
+                State = GameState.Playing;
+            }
+        }
+
+        private IEnumerator MoveCoroutine(MoveDirection moveDirection)
+        {
+            State = GameState.WaitingForMoveToEnd;
+
+            switch (moveDirection)
+            {
+                case MoveDirection.Down:
+                    for (int i = 0; i < _columns.Count; i++)
+                    {
+                        StartCoroutine(MoveOneLineUpIndexCoroutine(_columns[i], i));
+                    }
+                    break;
+                case MoveDirection.Left:
+                    for (int i = 0; i < _columns.Count; i++)
+                    {
+                        StartCoroutine(MoveOneLineDownIndexCoroutine(_rows[i], i));
+                    }
+                    break;
+                case MoveDirection.Right:
+                    for (int i = 0; i < _columns.Count; i++)
+                    {
+                        StartCoroutine(MoveOneLineUpIndexCoroutine(_rows[i], i));
+                    }
+                    break;
+                case MoveDirection.Up:
+                    for (int i = 0; i < _columns.Count; i++)
+                    {
+                        StartCoroutine(MoveOneLineDownIndexCoroutine(_columns[i], i));
+                    }
+                    break;
             }
 
-            if (moveMade)
+            while (!(_lineMoveComplete[0] && _lineMoveComplete[1] && _lineMoveComplete[2] && _lineMoveComplete[3]))
+                yield return null;
+
+            if (_moveMade)
             {
                 UpdateEmptyTiles();
                 Generate();
@@ -292,6 +367,32 @@ namespace _2048._Scripts
                     GameOver();
                 }
             }
+            _moveMade = false;
+            State = GameState.Playing;
+        }
+
+        private IEnumerator MoveOneLineUpIndexCoroutine(Tile[] line, int index)
+        {
+            _lineMoveComplete[index] = false;
+            while (MakeOneMoveUpIndex(line))
+            {
+                _moveMade = true;
+                yield return new WaitForSeconds(Delay);
+            }
+
+            _lineMoveComplete[index] = true;
+        }
+
+        private IEnumerator MoveOneLineDownIndexCoroutine(Tile[] line, int index)
+        {
+            _lineMoveComplete[index] = false;
+            while (MakeOneMoveDownIndex(line))
+            {
+                _moveMade = true;
+                yield return new WaitForSeconds(Delay);
+            }
+
+            _lineMoveComplete[index] = true;
         }
         
         private void Update()
