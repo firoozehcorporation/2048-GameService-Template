@@ -13,6 +13,7 @@
             <e p="AutoGridLayout.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="InputManager.cs" t="Include" />
+            <e p="ScoreTracker.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
             <e p="TileStyleHolder.cs" t="Include" />
           </e>
@@ -21,6 +22,204 @@
           </e>
           <e p="Scratches" t="Include">
             <e p="Scratches.txt" t="Include" />
+          </e>
+          <e p="Sourav" t="Include">
+            <e p="Test" t="Include">
+              <e p="_Scripts" t="Include">
+                <e p="ColorPoint" t="Include">
+                  <e p="ColorPoint.cs" t="Include" />
+                  <e p="ColorPointTester.cs" t="Include" />
+                </e>
+                <e p="DecimalToBinary.cs" t="Include" />
+                <e p="Optimised_ArraySearchFunction.cs" t="Include" />
+                <e p="ReadonlyTest.cs" t="Include" />
+                <e p="ShuffleTest.cs" t="Include" />
+                <e p="SortTest.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="CreateGameObject.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Tools" t="Include">
+              <e p="ReferenceFinder" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="Data" t="Include">
+                    <e p="AssetDependencies.cs" t="Include" />
+                    <e p="CacheManager.cs" t="Include" />
+                    <e p="DependencyBase.cs" t="Include" />
+                    <e p="FileDependency.cs" t="Include" />
+                    <e p="FindDependencies.cs" t="Include" />
+                    <e p="InSceneDependency.cs" t="Include" />
+                    <e p="ResultRow.cs" t="Include" />
+                    <e p="SearchTarget.cs" t="Include" />
+                    <e p="SerializableCache.cs" t="Include" />
+                  </e>
+                  <e p="DependencyWindow.cs" t="Include" />
+                  <e p="FeedbackPopup.cs" t="Include" />
+                  <e p="Styles" t="Include">
+                    <e p="ContentStylePair.cs" t="Include" />
+                    <e p="DependencyStyle.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Reporter" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ReporterEditor.cs" t="Include" />
+                </e>
+                <e p="MultiKeyDictionary.cs" t="Include" />
+                <e p="Reporter.cs" t="Include" />
+                <e p="ReporterGUI.cs" t="Include" />
+                <e p="ReporterMessageReceiver.cs" t="Include" />
+              </e>
+              <e p="SearchTool" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="SearchSelectionHistoryTracker.cs" t="Include" />
+                  <e p="SearchWindow.cs" t="Include" />
+                </e>
+              </e>
+              <e p="WireFrame" t="Include">
+                <e p="Integration" t="Include">
+                  <e p="IntegrationCommon.cs" t="Include" />
+                  <e p="MeshCombinerIntegration.cs" t="Include" />
+                  <e p="MeshDeformerIntegration.cs" t="Include" />
+                  <e p="WiresIntegration.cs" t="Include" />
+                </e>
+                <e p="PivotEditor" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="MeshUtils.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="WireFrame" t="Include">
+                  <e p="Demo" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="Rotate.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Scripts" t="Include">
+                    <e p="Barycentric.cs" t="Include" />
+                    <e p="Editor" t="Include">
+                      <e p="WireframeMenu.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Shaders" t="Include">
+                    <e p="Editor" t="Include">
+                      <e p="WireframeEditor.cs" t="Include" />
+                    </e>
+                    <e p="Wireframe.shader" t="Include" />
+                    <e p="WireframeProjector.shader" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="Utilities" t="Include">
+              <e p="Definitions" t="Include">
+                <e p="Definitions.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="BuildTargetGroupRelated" t="Include">
+                  <e p="GetBuildTargetGroup.cs" t="Include" />
+                </e>
+                <e p="ConsoleRelated" t="Include">
+                  <e p="ClearConsole.cs" t="Include" />
+                </e>
+                <e p="CreateOrRemoveProjectFolders" t="Include">
+                  <e p="ProjectFolders.cs" t="Include" />
+                </e>
+                <e p="CustomDrawer" t="Include">
+                  <e p="ReadOnlyDrawer.cs" t="Include" />
+                </e>
+                <e p="CustomExplorer" t="Include">
+                  <e p="MyCustomInspector.cs" t="Include" />
+                </e>
+                <e p="DateTimeRelated" t="Include">
+                  <e p="ConvertDateTimeToString.cs" t="Include" />
+                </e>
+                <e p="DeleteUtilities" t="Include">
+                  <e p="DeletePlayerFiles.cs" t="Include" />
+                  <e p="RemoveAllGeneratedCode.cs" t="Include" />
+                </e>
+                <e p="ExplorerRelated" t="Include">
+                  <e p="ShowInExplorer.cs" t="Include" />
+                </e>
+                <e p="ExportUnityPackage" t="Include">
+                  <e p="ExportAssetPackage.cs" t="Include" />
+                </e>
+                <e p="FileIORelated" t="Include">
+                  <e p="CheckIfScriptIsExcluded.cs" t="Include" />
+                  <e p="CreateExcludedFolderEnumObject.cs" t="Include" />
+                  <e p="ExtractFileNameFromPath.cs" t="Include" />
+                  <e p="FileMatching.cs" t="Include" />
+                  <e p="FindAllFolders.cs" t="Include" />
+                  <e p="FindFiles.cs" t="Include" />
+                  <e p="GenerateEnums.cs" t="Include" />
+                </e>
+                <e p="MacroRelated" t="Include">
+                  <e p="SwitchOnOffMacro.cs" t="Include" />
+                </e>
+                <e p="ScriptsRelated" t="Include">
+                  <e p="SortScripts.cs" t="Include" />
+                </e>
+                <e p="Shortcuts" t="Include">
+                  <e p="OpenScriptsShortcut.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Extensions" t="Include">
+                <e p="ArrayExtensions.cs" t="Include" />
+                <e p="FloatExtensions.cs" t="Include" />
+                <e p="GameObjectExtensions.cs" t="Include" />
+                <e p="IEnumerableExtensions.cs" t="Include" />
+                <e p="ListExtensions.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Algorithms" t="Include">
+                  <e p="A_Star_PathFinding" t="Include">
+                    <e p="Grid.cs" t="Include" />
+                    <e p="Node.cs" t="Include" />
+                    <e p="PathFinding.cs" t="Include" />
+                    <e p="PathRequestManager.cs" t="Include" />
+                    <e p="Unit.cs" t="Include" />
+                  </e>
+                  <e p="Randomization" t="Include">
+                    <e p="RandomFairCoinToss.cs" t="Include" />
+                    <e p="RandomizationDither.cs" t="Include" />
+                  </e>
+                  <e p="Shuffle" t="Include">
+                    <e p="FisherYatesShuffle.cs" t="Include" />
+                  </e>
+                  <e p="Sorting" t="Include">
+                    <e p="CountingSort_Integer.cs" t="Include" />
+                    <e p="QuickSort_Integer.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Attributes" t="Include">
+                  <e p="ButtonAttribute.cs" t="Include" />
+                  <e p="ReadOnlyAttribute.cs" t="Include" />
+                </e>
+                <e p="Camera" t="Include">
+                  <e p="EdgePanZoom" t="Include">
+                    <e p="CameraPanZoomEdge.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="CheckGameObjectsPresentInScene.cs" t="Include" />
+                <e p="CircularRandomAccessList.cs" t="Include" />
+                <e p="CreatePrefabInstance.cs" t="Include" />
+                <e p="DataStructures" t="Include">
+                  <e p="Heap.cs" t="Include" />
+                  <e p="Stack_Sourav.cs" t="Include" />
+                </e>
+                <e p="DetectPressedKeyOrButton.cs" t="Include" />
+                <e p="DontDestroyOnLoad.cs" t="Include" />
+                <e p="Enums" t="Include">
+                  <e p="EnumUtil.cs" t="Include" />
+                </e>
+                <e p="ExportHelper.cs" t="Include" />
+                <e p="FileIO.cs" t="Include" />
+                <e p="FPSDisplay.cs" t="Include" />
+                <e p="ObjectPool.cs" t="Include" />
+                <e p="RandomAlphaNumeric.cs" t="Include" />
+                <e p="Singleton.cs" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>

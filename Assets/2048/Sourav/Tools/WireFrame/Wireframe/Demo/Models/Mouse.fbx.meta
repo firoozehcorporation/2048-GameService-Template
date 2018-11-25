@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: 44331b2fcc7fc54418a0f09427ece22b
+timeCreated: 1468927172
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature.001
+    100002: Bone
+    100004: Bone.001
+    100006: Bone.001_end
+    100008: Bone.002
+    100010: Bone.002_end
+    100012: Bone.003
+    100014: Bone.004
+    100016: Bone.005
+    100018: Bone.006
+    100020: Bone.007
+    100022: Bone.007_end
+    100024: Bone.008
+    100026: Bone.009
+    100028: Bone.010
+    100030: Bone.011
+    100032: Bone.012
+    100034: Bone.013
+    100036: Bone.014
+    100038: Bone.015
+    100040: Bone.015_end
+    100042: Bone.016
+    100044: Bone.016_end
+    100046: Bone.017
+    100048: Bone.018
+    100050: Bone.019
+    100052: Bone.019_end
+    100054: Bone.020
+    100056: Bone.021
+    100058: Bone.022
+    100060: Bone.022_end
+    100062: Bone.023
+    100064: Bone.023_end
+    100066: Bone.024
+    100068: Bone.024_end
+    100070: Bone.025
+    100072: Bone.025_end
+    100074: Bone.026
+    100076: Bone.027
+    100078: Cube
+    100080: //RootNode
+    100082: Sphere
+    100084: Sphere.003
+    400000: Armature.001
+    400002: Bone
+    400004: Bone.001
+    400006: Bone.001_end
+    400008: Bone.002
+    400010: Bone.002_end
+    400012: Bone.003
+    400014: Bone.004
+    400016: Bone.005
+    400018: Bone.006
+    400020: Bone.007
+    400022: Bone.007_end
+    400024: Bone.008
+    400026: Bone.009
+    400028: Bone.010
+    400030: Bone.011
+    400032: Bone.012
+    400034: Bone.013
+    400036: Bone.014
+    400038: Bone.015
+    400040: Bone.015_end
+    400042: Bone.016
+    400044: Bone.016_end
+    400046: Bone.017
+    400048: Bone.018
+    400050: Bone.019
+    400052: Bone.019_end
+    400054: Bone.020
+    400056: Bone.021
+    400058: Bone.022
+    400060: Bone.022_end
+    400062: Bone.023
+    400064: Bone.023_end
+    400066: Bone.024
+    400068: Bone.024_end
+    400070: Bone.025
+    400072: Bone.025_end
+    400074: Bone.026
+    400076: Bone.027
+    400078: Cube
+    400080: //RootNode
+    400082: Sphere
+    400084: Sphere.003
+    4300000: Cube
+    4300002: Sphere.003
+    4300004: Sphere
+    7400000: Armature.001|Idle
+    7400002: Armature.001|Jump
+    7400004: Armature.001|Move
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Sphere
+    13700004: Sphere.003
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
