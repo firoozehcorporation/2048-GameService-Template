@@ -1,0 +1,11 @@
+
+1. Convert the game into AMVCC
+2. Input manager will be converted into input view and input controller
+3. GameManager will be Game controller.
+4. Tile Style holder should be a scriptable object in model class, so that I can simply change the scriptable object any time
+	without worrying what happens to the game.
+5. Tile is just a view. So, it must notify the controller what to do.
+6. Change the string Find NumberedCell in Tile to something that is not a string dependent.
+7. Tile _tileImage is getting NumberedCell by searching through a name. This should not be happening.
+8. In GameManager, the allTiles array is currently getting static variables. This should not be the case.
+9. I manually put the index of tiles for row and column. Need to find a way to automate it. 

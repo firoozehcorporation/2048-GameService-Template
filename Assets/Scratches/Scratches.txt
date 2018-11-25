@@ -1,8 +1,0 @@
-
-1. Convert the game into AMVCC
-2. Input manager will be converted into input view and input controller
-3. GameManager will be Game controller.
-4. Tile Style holder should be a scriptable object in model class, so that I can simply change the scriptable object any time
-	without worrying what happens to the game.
-5. Tile is just a view. So, it must notify the controller what to do.
-6. Chnage the string Find NumberedCell in Tile to something that is not a string dependent.

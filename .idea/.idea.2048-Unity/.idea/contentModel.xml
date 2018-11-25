@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Sourav\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Sourav\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_2048-Unity.-1146320884.00" t="ExcludeRecursive" />
+    <e p="G:\GitRepos\2048-Unity" t="IncludeRecursive">
+      <e p="2048-Unity.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="2048" t="Include">
+          <e p="_Scripts" t="Include">
+            <e p="AutoGridLayout.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="InputManager.cs" t="Include" />
+            <e p="Tile.cs" t="Include" />
+            <e p="TileStyleHolder.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="AutoGridLayoutEditor.cs" t="Include" />
+          </e>
+          <e p="Scratches" t="Include">
+            <e p="Scratches.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
