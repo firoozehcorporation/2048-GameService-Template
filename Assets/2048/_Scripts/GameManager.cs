@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FiroozehGameServiceAndroid;
+using FiroozehGameServiceAndroid.Builders;
 using Sourav.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +20,7 @@ namespace _2048._Scripts
     
     public class GameManager : MonoBehaviour
     {
+        public static FiroozehGameService GameService;
         public GameState State;
         [Range(0, 2f)]
         public float Delay;
@@ -46,10 +49,25 @@ namespace _2048._Scripts
         private void Awake()
         {
             Instance = this;
+            
+        
+            
         }
 
         private void Start()
         {
+            if (GameService == null)
+            {
+
+                FiroozehGameServiceInitializer
+                    .With("Your clientId", "Your clientSecret")
+                    .IsNotificationEnable(true)
+                    .CheckGameServiceInstallStatus(true)
+                    .CheckGameServiceOptionalUpdate(true)
+                    .Init(g => { GameService = g; },
+                        e => { Debug.Log("FiroozehGameServiceInitializerError: " + e); });
+            }
+
             StartNewGame();
         }
 
