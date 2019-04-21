@@ -20,7 +20,9 @@ namespace _2048._Scripts
     
     public class GameManager : MonoBehaviour
     {
-        public static FiroozehGameService GameService;
+        private static FiroozehGameService GameService;
+        
+        
         public GameState State;
         [Range(0, 2f)]
         public float Delay;
@@ -64,7 +66,16 @@ namespace _2048._Scripts
                     .IsNotificationEnable(true)
                     .CheckGameServiceInstallStatus(true)
                     .CheckGameServiceOptionalUpdate(true)
-                    .Init(g => { GameService = g; },
+                    .Init(g =>
+                        {
+                            GameService = g; 
+                            g.GetSaveGame<Save>(save =>
+                            {
+                                PlayerPrefs.SetInt("HighScore", !PlayerPrefs.HasKey("HighScore") ? 0 : save.HighScore);
+                                
+                            },e=>{});
+                            
+                        },
                         e => { Debug.Log("FiroozehGameServiceInitializerError: " + e); });
             }
 
@@ -83,11 +94,11 @@ namespace _2048._Scripts
             _emptyTiles = new List<Tile>();
             ScoreTracker.Score = 0;
             Tile[] allTilesOneDim = FindObjectsOfType<Tile>();
-            for (int i = 0; i < allTilesOneDim.Length; i++)
+            foreach (var t in allTilesOneDim)
             {
-                allTilesOneDim[i].Number = 0;
-                _allTiles[allTilesOneDim[i].IndexForRow, allTilesOneDim[i].IndexForColumn] = allTilesOneDim[i];
-                _emptyTiles.Add(allTilesOneDim[i]);
+                t.Number = 0;
+                _allTiles[t.IndexForRow, t.IndexForColumn] = t;
+                _emptyTiles.Add(t);
             }
 
             _columns.Add(new Tile[] {_allTiles[0, 0], _allTiles[1, 0], _allTiles[2, 0], _allTiles[3, 0]});
@@ -112,16 +123,30 @@ namespace _2048._Scripts
 
         private void YouWon()
         {
-            if (!_has2048Reached)
-            {
-                GameWonPanel.Show();
-                _has2048Reached = true;
-                State = GameState.GameOver;
-            }
+            GameService?.SaveGame(
+                "2048Save"
+                ,"2048SaveGame"
+                ,null
+                ,new Save {Score = ScoreTracker.Score , HighScore = PlayerPrefs.GetInt("HighScore")}
+                ,c=>{},e=>{});
+            
+            if (_has2048Reached) return;
+            GameWonPanel.Show();
+            _has2048Reached = true;
+            State = GameState.GameOver;
         }
         
         private void GameOver()
         {
+            
+            GameService?.SaveGame(
+                "2048Save"
+                ,"2048SaveGame"
+                ,null
+                ,new Save {Score = ScoreTracker.Score , HighScore = PlayerPrefs.GetInt("HighScore")}
+                ,c=>{},e=>{});
+            
+            
             GameOverScoreText.text = ScoreTracker.Score.ToString();
             GameOverPanel.Show();
             State = GameState.GameOver;
@@ -169,26 +194,22 @@ namespace _2048._Scripts
                 }
                 
                 //Merge block
-                if (lineOfTiles[i].Number == lineOfTiles[i + 1].Number &&
-                    !lineOfTiles[i].MergedThisTurn && !lineOfTiles[i + 1].MergedThisTurn && 
-                    lineOfTiles[i].Number != 0)
-                {
-                    lineOfTiles[i].Number *= 2;
-                    lineOfTiles[i + 1].Number = 0;
+                if (lineOfTiles[i].Number != lineOfTiles[i + 1].Number || lineOfTiles[i].MergedThisTurn ||
+                    lineOfTiles[i + 1].MergedThisTurn || lineOfTiles[i].Number == 0) continue;
+                lineOfTiles[i].Number *= 2;
+                lineOfTiles[i + 1].Number = 0;
 
-                    lineOfTiles[i].MergedThisTurn = true;
-                    lineOfTiles[i + 1].MergedThisTurn = true;
-                    lineOfTiles[i].Play_MergedAnimation();
-                    ScoreTracker.Score += lineOfTiles[i].Number;
+                lineOfTiles[i].MergedThisTurn = true;
+                lineOfTiles[i + 1].MergedThisTurn = true;
+                lineOfTiles[i].Play_MergedAnimation();
+                ScoreTracker.Score += lineOfTiles[i].Number;
+                checkScore();
 
-                    if (lineOfTiles[i].Number == 2048)
-                    {
-                        
-                        YouWon();
-                    }
-                    
-                    return true;
-                }
+                if (lineOfTiles[i].Number != 2048) return true;
+                GameService?.SubmitScore("2048List",2048,c=>{},e=>{});
+                YouWon();
+
+                return true;
             }
 
             return false;
@@ -217,6 +238,7 @@ namespace _2048._Scripts
                     lineOfTiles[i - 1].MergedThisTurn = true;
                     lineOfTiles[i].Play_MergedAnimation();
                     ScoreTracker.Score += lineOfTiles[i].Number;
+                    checkScore();
 
                     if (lineOfTiles[i].Number == 2048)
                     {
@@ -418,6 +440,26 @@ namespace _2048._Scripts
             if (Input.GetKeyDown(KeyCode.G))
             {
                 Generate();
+            }
+        }
+
+        private void checkScore()
+        {
+            var score = ScoreTracker.Score;
+            switch (score)
+            {
+                case 50:
+                    GameService?.UnlockAchievement("Score_50",c=>{},e=>{});
+                    break;
+                case 100:
+                    GameService?.UnlockAchievement("Score_100",c=>{},e=>{});
+                    break;
+                case 200:
+                    GameService?.UnlockAchievement("Score_200",c=>{},e=>{});
+                    break;
+                case 300:
+                    GameService?.UnlockAchievement("Score_300",c=>{},e=>{});
+                    break;
             }
         }
     }

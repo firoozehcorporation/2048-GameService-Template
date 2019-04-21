@@ -17,11 +17,9 @@ namespace _2048._Scripts
             {
                 _score = value;
                 ScoreText.text = _score.ToString();
-                if (PlayerPrefs.GetInt("HighScore") < _score)
-                {
-                    PlayerPrefs.SetInt("HighScore", _score);
-                    HighScoreText.text = _score.ToString();
-                }
+                if (PlayerPrefs.GetInt("HighScore") >= _score) return;
+                PlayerPrefs.SetInt("HighScore", _score);
+                HighScoreText.text = _score.ToString();
             }
         }
         

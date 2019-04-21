@@ -13,6 +13,7 @@
             <e p="AutoGridLayout.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="InputManager.cs" t="Include" />
+            <e p="Save.cs" t="Include" />
             <e p="ScoreTracker.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
             <e p="TileStyleHolder.cs" t="Include" />
