@@ -28,7 +28,9 @@ namespace _2048._Scripts
         [Range(0, 2f)]
         public float Delay;
         [SerializeField]private bool _moveMade;
-        [SerializeField]private bool[] _lineMoveComplete = new bool[4]{ true, true, true, true };
+        [SerializeField]private bool[] _lineMoveComplete = { true, true, true, true };
+        
+        private bool[] Achivstate = { false, false, false, false , false};
         
         public Text GameOverScoreText;
         public GameObject GameOverPanel;
@@ -63,7 +65,7 @@ namespace _2048._Scripts
             {
 
               FiroozehGameServiceInitializer
-                   .With("Your clientId", "Your clientSecret")  
+                    .With("Your clientId", "Your clientSecret")  
                     .IsNotificationEnable(true)
                     .CheckGameServiceInstallStatus(true)
                     .CheckGameServiceOptionalUpdate(true)
@@ -448,24 +450,16 @@ namespace _2048._Scripts
         private void checkScore()
         {
             var score = ScoreTracker.Score;
-            switch (score)
-            {
-                case 200:
-                    GameService?.UnlockAchievement("Score_200", c => { }, e => { });
-                    break;
-                case 500:
-                    GameService?.UnlockAchievement("Score_500", c => { }, e => { });
-                    break;
-                case 1000:
-                    GameService?.UnlockAchievement("Score_1000", c => { }, e => { });
-                    break;
-                case 2000:
-                    GameService?.UnlockAchievement("Score_2000", c => { }, e => { });
-                    break;
-                case 4000:
-                    GameService?.UnlockAchievement("Score_4000", c => { }, e => { });
-                    break;
-            }
+            if (score >= 200 && !Achivstate[0])
+                GameService?.UnlockAchievement("Score_200", c => { Achivstate[0] = true; }, e => { });
+            else if (score >= 500 && !Achivstate[1])
+                GameService?.UnlockAchievement("Score_500", c => { Achivstate[1] = true; }, e => { });
+            else if (score >= 1000 && !Achivstate[2])
+                GameService?.UnlockAchievement("Score_1000", c => {Achivstate[2] = true; }, e => { });
+            else if (score >= 2000 && !Achivstate[3])
+                GameService?.UnlockAchievement("Score_2000", c => {Achivstate[3] = true; }, e => { });
+            else if (score >= 4000 && !Achivstate[4]) 
+                GameService?.UnlockAchievement("Score_4000", c => { Achivstate[4] = true; }, e => { });
 
             if (_columns.All(r => r.All(r2 => r2.Number == 2)))
                 GameService?.UnlockAchievement("AllColumn_Is_Two",c=>{},e=>{});
