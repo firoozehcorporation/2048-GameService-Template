@@ -62,8 +62,8 @@ namespace _2048._Scripts
             if (GameService == null)
             {
 
-                FiroozehGameServiceInitializer
-                    .With("Your clientId", "Your clientSecret")
+              FiroozehGameServiceInitializer
+                   .With("Your clientId", "Your clientSecret")  
                     .IsNotificationEnable(true)
                     .CheckGameServiceInstallStatus(true)
                     .CheckGameServiceOptionalUpdate(true)
@@ -78,7 +78,7 @@ namespace _2048._Scripts
                             
                         },
                         e => { Debug.Log("FiroozehGameServiceInitializerError: " + e); });
-                       
+                  
             }
 
             StartNewGame();
@@ -156,32 +156,30 @@ namespace _2048._Scripts
 
         private bool CanMove()
         {
+            checkScore();
             if (_emptyTiles.Count > 0)
                 return true;
-            else
+            //check columns
+            for (var i = 0; i < _columns.Count; i++)
             {
-                //check columns
-                for (int i = 0; i < _columns.Count; i++)
+                for (var j = 0; j < _rows.Count - 1; j++)
                 {
-                    for (int j = 0; j < _rows.Count - 1; j++)
-                    {
-                        if (_allTiles[j, i].Number == _allTiles[j + 1, i].Number)
-                            return true;
-                    }
+                    if (_allTiles[j, i].Number == _allTiles[j + 1, i].Number)
+                        return true;
                 }
-                
-                //check rows
-                for (int i = 0; i < _rows.Count; i++)
-                {
-                    for (int j = 0; j < _columns.Count - 1; j++)
-                    {
-                        if (_allTiles[i, j].Number == _allTiles[i, j + 1].Number)
-                            return true;
-                    }
-                }
-                
-                return false;
             }
+                
+            //check rows
+            for (var i = 0; i < _rows.Count; i++)
+            {
+                for (var j = 0; j < _columns.Count - 1; j++)
+                {
+                    if (_allTiles[i, j].Number == _allTiles[i, j + 1].Number)
+                        return true;
+                }
+            }
+                
+            return false;
         }
         
         private bool MakeOneMoveDownIndex(IReadOnlyList<Tile> lineOfTiles)
@@ -208,7 +206,9 @@ namespace _2048._Scripts
                 checkScore();
 
                 if (lineOfTiles[i].Number != 2048) return true;
-                GameService?.SubmitScore("2048List",2048,c=>{},e=>{});
+                
+                GameService?.UnlockAchievement("Reach_2048",c=>{},e=>{});
+                GameService?.SubmitScore("2048List",100,c=>{},e=>{});
                 YouWon();
 
                 return true;
@@ -450,19 +450,39 @@ namespace _2048._Scripts
             var score = ScoreTracker.Score;
             switch (score)
             {
-                case 50:
-                    GameService?.UnlockAchievement("Score_50",c=>{},e=>{});
-                    break;
-                case 100:
-                    GameService?.UnlockAchievement("Score_100",c=>{},e=>{});
-                    break;
                 case 200:
-                    GameService?.UnlockAchievement("Score_200",c=>{},e=>{});
+                    GameService?.UnlockAchievement("Score_200", c => { }, e => { });
                     break;
-                case 300:
-                    GameService?.UnlockAchievement("Score_300",c=>{},e=>{});
+                case 500:
+                    GameService?.UnlockAchievement("Score_500", c => { }, e => { });
+                    break;
+                case 1000:
+                    GameService?.UnlockAchievement("Score_1000", c => { }, e => { });
+                    break;
+                case 2000:
+                    GameService?.UnlockAchievement("Score_2000", c => { }, e => { });
+                    break;
+                case 4000:
+                    GameService?.UnlockAchievement("Score_4000", c => { }, e => { });
                     break;
             }
+
+            if (_columns.All(r => r.All(r2 => r2.Number == 2)))
+                GameService?.UnlockAchievement("AllColumn_Is_Two",c=>{},e=>{});
+            else if (_columns.All(r => r.All(r2 => r2.Number == 4)))
+                GameService?.UnlockAchievement("AllColumn_Is_Four",c=>{},e=>{});
+           
+            
+            if (_rows.All(r => r.All(r2 => r2.Number == 2)))
+                GameService?.UnlockAchievement("AllRow_Is_Two",c=>{},e=>{});
+            else if (_rows.All(r => r.All(r2 => r2.Number == 4)))
+                GameService?.UnlockAchievement("AllRow_Is_Four",c=>{},e=>{});
+
+            
+            
+            
+            
+            
         }
     }
 }
