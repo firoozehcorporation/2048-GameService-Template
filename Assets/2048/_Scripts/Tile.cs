@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FiroozehGameServiceAndroid.Utils;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _2048._Scripts
@@ -43,7 +44,7 @@ namespace _2048._Scripts
 
         private void ApplyStyleFromHolder(int index)
         {
-            _tileText.text = GameManager.Instance.TileStyleHolder.TileStyles[index].Number.ToString();
+            _tileText.text = FarsiTextUtil.FixText(GameManager.Instance.TileStyleHolder.TileStyles[index].Number.ToString());
             _tileText.color = GameManager.Instance.TileStyleHolder.TileStyles[index].TextColor;
             _tileImage.color = GameManager.Instance.TileStyleHolder.TileStyles[index].TileColor;
         }

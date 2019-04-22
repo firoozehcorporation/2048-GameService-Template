@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FiroozehGameServiceAndroid.Utils;
+using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
@@ -16,10 +17,10 @@ namespace _2048._Scripts
             set
             {
                 _score = value;
-                ScoreText.text = _score.ToString();
+                ScoreText.text = FarsiTextUtil.FixText(_score.ToString());
                 if (PlayerPrefs.GetInt("HighScore") >= _score) return;
                 PlayerPrefs.SetInt("HighScore", _score);
-                HighScoreText.text = _score.ToString();
+                HighScoreText.text = FarsiTextUtil.FixText(_score.ToString());
             }
         }
         
@@ -27,8 +28,10 @@ namespace _2048._Scripts
         {
             if(!PlayerPrefs.HasKey("HighScore")){ PlayerPrefs.SetInt("HighScore", 0);}
 
-            ScoreText.text = "0";
-            HighScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+            ScoreText.text = FarsiTextUtil.FixText("0");
+            HighScoreText.text = FarsiTextUtil.FixText(
+                PlayerPrefs.GetInt("HighScore").ToString()
+                );
         }
     }
 }

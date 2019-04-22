@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FiroozehGameServiceAndroid;
 using FiroozehGameServiceAndroid.Builders;
+using FiroozehGameServiceAndroid.Utils;
 using Sourav.Utilities.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -77,6 +78,7 @@ namespace _2048._Scripts
                             
                         },
                         e => { Debug.Log("FiroozehGameServiceInitializerError: " + e); });
+                       
             }
 
             StartNewGame();
@@ -101,15 +103,15 @@ namespace _2048._Scripts
                 _emptyTiles.Add(t);
             }
 
-            _columns.Add(new Tile[] {_allTiles[0, 0], _allTiles[1, 0], _allTiles[2, 0], _allTiles[3, 0]});
-            _columns.Add(new Tile[] {_allTiles[0, 1], _allTiles[1, 1], _allTiles[2, 1], _allTiles[3, 1]});
-            _columns.Add(new Tile[] {_allTiles[0, 2], _allTiles[1, 2], _allTiles[2, 2], _allTiles[3, 2]});
-            _columns.Add(new Tile[] {_allTiles[0, 3], _allTiles[1, 3], _allTiles[2, 3], _allTiles[3, 3]});
+            _columns.Add(new[] {_allTiles[0, 0], _allTiles[1, 0], _allTiles[2, 0], _allTiles[3, 0]});
+            _columns.Add(new[] {_allTiles[0, 1], _allTiles[1, 1], _allTiles[2, 1], _allTiles[3, 1]});
+            _columns.Add(new[] {_allTiles[0, 2], _allTiles[1, 2], _allTiles[2, 2], _allTiles[3, 2]});
+            _columns.Add(new[] {_allTiles[0, 3], _allTiles[1, 3], _allTiles[2, 3], _allTiles[3, 3]});
 
-            _rows.Add(new Tile[] {_allTiles[0, 0], _allTiles[0, 1], _allTiles[0, 2], _allTiles[0, 3]});
-            _rows.Add(new Tile[] {_allTiles[1, 0], _allTiles[1, 1], _allTiles[1, 2], _allTiles[1, 3]});
-            _rows.Add(new Tile[] {_allTiles[2, 0], _allTiles[2, 1], _allTiles[2, 2], _allTiles[2, 3]});
-            _rows.Add(new Tile[] {_allTiles[3, 0], _allTiles[3, 1], _allTiles[3, 2], _allTiles[3, 3]});
+            _rows.Add(new[] {_allTiles[0, 0], _allTiles[0, 1], _allTiles[0, 2], _allTiles[0, 3]});
+            _rows.Add(new[] {_allTiles[1, 0], _allTiles[1, 1], _allTiles[1, 2], _allTiles[1, 3]});
+            _rows.Add(new[] {_allTiles[2, 0], _allTiles[2, 1], _allTiles[2, 2], _allTiles[2, 3]});
+            _rows.Add(new[] {_allTiles[3, 0], _allTiles[3, 1], _allTiles[3, 2], _allTiles[3, 3]});
 
             Generate();
             Generate();
@@ -147,7 +149,7 @@ namespace _2048._Scripts
                 ,c=>{},e=>{});
             
             
-            GameOverScoreText.text = ScoreTracker.Score.ToString();
+            GameOverScoreText.text = FarsiTextUtil.FixText(ScoreTracker.Score.ToString());
             GameOverPanel.Show();
             State = GameState.GameOver;
         }

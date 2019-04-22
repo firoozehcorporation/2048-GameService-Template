@@ -11,6 +11,7 @@
         <e p="2048" t="Include">
           <e p="_Scripts" t="Include">
             <e p="AutoGridLayout.cs" t="Include" />
+            <e p="FarsiText.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="InputManager.cs" t="Include" />
             <e p="Save.cs" t="Include" />

@@ -17,10 +17,10 @@ namespace _2048._Scripts
 
         private void OnValidate()
         {
-            for (int i = 0; i < TileStyles.Length; i++)
+            foreach (var t in TileStyles)
             {
-                TileStyles[i].Name = TileStyles[i].Number.ToString();
-                if (TileStyles[i].TileColor.a == 0) { TileStyles[i].TileColor = new Color32(255, 255, 255, 255); }
+                t.Name = t.Number.ToString();
+                if (t.TileColor.a == 0) { t.TileColor = new Color32(255, 255, 255, 255); }
             }
         }
 
