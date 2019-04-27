@@ -30,7 +30,9 @@ namespace _2048._Scripts
         [SerializeField]private bool _moveMade;
         [SerializeField]private bool[] _lineMoveComplete = { true, true, true, true };
         
-        private bool[] Achivstate = { false, false, false, false , false};
+       
+        private List<Achievement> _achievements = new List<Achievement>();
+        
         
         public Text GameOverScoreText;
         public GameObject GameOverPanel;
@@ -65,7 +67,7 @@ namespace _2048._Scripts
             {
 
               FiroozehGameServiceInitializer
-                    .With("Your clientId", "Your clientSecret")  
+                   .With("Your clientId", "Your clientSecret")  
                     .IsNotificationEnable(true)
                     .CheckGameServiceInstallStatus(true)
                     .CheckGameServiceOptionalUpdate(true)
@@ -76,6 +78,11 @@ namespace _2048._Scripts
                             {
                                 PlayerPrefs.SetInt("HighScore", !PlayerPrefs.HasKey("HighScore") ? 0 : save.HighScore);
                                 
+                            },e=>{});
+                            
+                            g.GetAchievements(achievements =>
+                            {
+                                _achievements.AddRange(achievements);
                             },e=>{});
                             
                         },
@@ -450,33 +457,55 @@ namespace _2048._Scripts
         private void checkScore()
         {
             var score = ScoreTracker.Score;
-            if (score >= 200 && !Achivstate[0])
-                GameService?.UnlockAchievement("Score_200", c => { Achivstate[0] = true; }, e => { });
-            else if (score >= 500 && !Achivstate[1])
-                GameService?.UnlockAchievement("Score_500", c => { Achivstate[1] = true; }, e => { });
-            else if (score >= 1000 && !Achivstate[2])
-                GameService?.UnlockAchievement("Score_1000", c => {Achivstate[2] = true; }, e => { });
-            else if (score >= 2000 && !Achivstate[3])
-                GameService?.UnlockAchievement("Score_2000", c => {Achivstate[3] = true; }, e => { });
-            else if (score >= 4000 && !Achivstate[4]) 
-                GameService?.UnlockAchievement("Score_4000", c => { Achivstate[4] = true; }, e => { });
+            if (score >= 200 && !_achievements.Find(a => a.key == "Score_200").earned)
+            {
+                _achievements.Add(new Achievement{earned = true , key = "Score_200"});
+                GameService?.UnlockAchievement("Score_200", c => { }, e => { });
+            }
+            else if (score >= 500 && !_achievements.Find(a => a.key == "Score_500").earned)
+            {
+             
+                _achievements.Add(new Achievement{earned = true , key = "Score_500"});
+                GameService?.UnlockAchievement("Score_500", c => { }, e => { });
+            }
+            else if (score >= 1000 && !_achievements.Find(a => a.key == "Score_1000").earned)
+            {
+                _achievements.Add(new Achievement{earned = true , key = "Score_1000"});
+                GameService?.UnlockAchievement("Score_1000", c => { }, e => { });
+            }
+            else if (score >= 2000 && !_achievements.Find(a => a.key == "Score_2000").earned)
+            {
+                _achievements.Add(new Achievement{earned = true , key = "Score_2000"});
+                GameService?.UnlockAchievement("Score_2000", c => { }, e => { });
+            }
+            else if (score >= 4000 && !_achievements.Find(a => a.key == "Score_4000").earned)
+            {
+                _achievements.Add(new Achievement{earned = true , key = "Score_4000"});
+                GameService?.UnlockAchievement("Score_4000", c => { }, e => { });
+            }
 
-            if (_columns.All(r => r.All(r2 => r2.Number == 2)))
-                GameService?.UnlockAchievement("AllColumn_Is_Two",c=>{},e=>{});
-            else if (_columns.All(r => r.All(r2 => r2.Number == 4)))
-                GameService?.UnlockAchievement("AllColumn_Is_Four",c=>{},e=>{});
-           
+            if (!_columns.Any(t => t.Any(t1 => t1.Number == 1024)) ||
+                _achievements.Find(a => a.key == "one_1024").earned) return;
+            {
+                _achievements.Add(new Achievement{earned = true , key = "one_1024"});
+                GameService?.UnlockAchievement("one_1024", c => {}, e => {});
+            }
             
-            if (_rows.All(r => r.All(r2 => r2.Number == 2)))
-                GameService?.UnlockAchievement("AllRow_Is_Two",c=>{},e=>{});
-            else if (_rows.All(r => r.All(r2 => r2.Number == 4)))
-                GameService?.UnlockAchievement("AllRow_Is_Four",c=>{},e=>{});
+            if (!_columns.Any(t => t.Any(t1 => t1.Number == 512)) ||
+                _achievements.Find(a => a.key == "one_512").earned) return;
+            {
+                _achievements.Add(new Achievement{earned = true , key = "one_512"});
+                GameService?.UnlockAchievement("one_512", c => {}, e => {});
+            }
+            
+            if (!_columns.Any(t => t.Any(t1 => t1.Number == 256)) ||
+                _achievements.Find(a => a.key == "one_256").earned) return;
+            {
+                _achievements.Add(new Achievement{earned = true , key = "one_256"});
+                GameService?.UnlockAchievement("one_256", c => {}, e => {});
+            }
+            
 
-            
-            
-            
-            
-            
         }
     }
 }
