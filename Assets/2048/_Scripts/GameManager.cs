@@ -29,9 +29,9 @@ namespace _2048._Scripts
         public float Delay;
         [SerializeField]private bool _moveMade;
         [SerializeField]private bool[] _lineMoveComplete = { true, true, true, true };
-        
-       
-        private List<Achievement> _achievements = new List<Achievement>();
+
+
+        private List<Achievement> _achievements;
         
         
         public Text GameOverScoreText;
@@ -56,9 +56,8 @@ namespace _2048._Scripts
         private void Awake()
         {
             Instance = this;
-            
+            _achievements = new List<Achievement>();
         
-            
         }
 
         private void Start()
@@ -87,9 +86,9 @@ namespace _2048._Scripts
                             
                         },
                         e => { Debug.Log("FiroozehGameServiceInitializerError: " + e); });
-                  
+                   
             }
-
+           
             StartNewGame();
         }
 
@@ -484,27 +483,27 @@ namespace _2048._Scripts
                 GameService?.UnlockAchievement("Score_4000", c => { }, e => { });
             }
 
-            if (!_columns.Any(t => t.Any(t1 => t1.Number == 1024)) ||
-                _achievements.Find(a => a.key == "one_1024").earned) return;
+            if (_columns.Any(t => t.Any(t1 => t1.Number == 1024)) &&
+                !_achievements.Find(a => a.key == "one_1024").earned)
             {
                 _achievements.Add(new Achievement{earned = true , key = "one_1024"});
                 GameService?.UnlockAchievement("one_1024", c => {}, e => {});
             }
             
-            if (!_columns.Any(t => t.Any(t1 => t1.Number == 512)) ||
-                _achievements.Find(a => a.key == "one_512").earned) return;
+            if (_columns.Any(t => t.Any(t1 => t1.Number == 512)) &&
+                !_achievements.Find(a => a.key == "one_512").earned)
             {
                 _achievements.Add(new Achievement{earned = true , key = "one_512"});
                 GameService?.UnlockAchievement("one_512", c => {}, e => {});
             }
-            
+
             if (!_columns.Any(t => t.Any(t1 => t1.Number == 256)) ||
                 _achievements.Find(a => a.key == "one_256").earned) return;
             {
                 _achievements.Add(new Achievement{earned = true , key = "one_256"});
                 GameService?.UnlockAchievement("one_256", c => {}, e => {});
             }
-            
+
 
         }
     }
