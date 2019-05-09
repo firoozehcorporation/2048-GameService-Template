@@ -227,31 +227,52 @@
         </e>
         <e p="FiroozehGameServiceAndroid" t="Include">
           <e p="Builders" t="Include">
-            <e p="FiroozehGameSerciveLogin.cs" t="Include" />
-            <e p="FiroozehGameServiceInitializer.cs" t="Include" />
-            <e p="GameServiceInitializer.cs" t="Include" />
+            <e p="App" t="Include">
+              <e p="FiroozehGameSerciveAppLogin.cs" t="Include" />
+              <e p="GameServiceAppInitializer.cs" t="Include" />
+            </e>
+            <e p="GameServiceClientConfiguration.cs" t="Include" />
+            <e p="Native" t="Include">
+              <e p="GameServiceNativeInitializer.cs" t="Include" />
+            </e>
           </e>
           <e p="Core" t="Include">
+            <e p="App" t="Include">
+              <e p="AppPluginHandler.cs" t="Include" />
+              <e p="AppPluginProvider.cs" t="Include" />
+            </e>
             <e p="DelegateCore.cs" t="Include" />
+            <e p="ErrorList.cs" t="Include" />
+            <e p="FiroozehGameService.cs" t="Include" />
             <e p="GameServiceException.cs" t="Include" />
-            <e p="GameServicePluginHandler.cs" t="Include" />
-            <e p="PluginProvider.cs" t="Include" />
+            <e p="Native" t="Include">
+              <e p="NativePluginHandler.cs" t="Include" />
+              <e p="NativePluginProvider.cs" t="Include" />
+            </e>
+            <e p="Pair.cs" t="Include" />
           </e>
-          <e p="FiroozehGameService.cs" t="Include" />
+          <e p="Enums" t="Include">
+            <e p="GameServiceType.cs" t="Include" />
+            <e p="InstanceType.cs" t="Include" />
+          </e>
+          <e p="GameService.cs" t="Include" />
           <e p="Interfaces" t="Include">
+            <e p="App" t="Include">
+              <e p="IGameServiceLoginCheck.cs" t="Include" />
+            </e>
             <e p="IGameServiceCallback.cs" t="Include" />
-            <e p="IGameServiceLoginCheck.cs" t="Include" />
           </e>
           <e p="Models" t="Include">
             <e p="Achievement.cs" t="Include" />
             <e p="LeaderBoard.cs" t="Include" />
             <e p="LeaderBoardDetails.cs" t="Include" />
+            <e p="SaveDetails.cs" t="Include" />
             <e p="Score.cs" t="Include" />
             <e p="User.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
             <e p="FarsiTextUtil.cs" t="Include" />
-            <e p="SystemInfoUtil.cs" t="Include" />
+            <e p="LogUtil.cs" t="Include" />
           </e>
         </e>
         <e p="JsonDotNet" t="Include">
