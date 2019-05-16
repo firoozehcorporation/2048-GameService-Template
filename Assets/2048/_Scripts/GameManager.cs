@@ -80,8 +80,8 @@ namespace _2048._Scripts
            
             var config = new GameServiceClientConfiguration
                     .Builder(InstanceType.Auto)
-                .SetClientId("Your clientId")
-                .SetClientSecret("Your clientSecret")
+                .SetClientId("Your ClientID")
+                .SetClientSecret("Your ClientSecret")
                 .IsLogEnable(true)
                 .IsNotificationEnable(true)
                 .CheckGameServiceInstallStatus(true)
