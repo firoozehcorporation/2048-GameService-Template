@@ -233,6 +233,7 @@
             </e>
             <e p="GameServiceClientConfiguration.cs" t="Include" />
             <e p="Native" t="Include">
+              <e p="GameServiceDownloadInitializer.cs" t="Include" />
               <e p="GameServiceNativeInitializer.cs" t="Include" />
             </e>
           </e>
@@ -241,8 +242,8 @@
               <e p="AppPluginHandler.cs" t="Include" />
               <e p="AppPluginProvider.cs" t="Include" />
             </e>
+            <e p="CallbackList.cs" t="Include" />
             <e p="DelegateCore.cs" t="Include" />
-            <e p="ErrorList.cs" t="Include" />
             <e p="FiroozehGameService.cs" t="Include" />
             <e p="GameServiceException.cs" t="Include" />
             <e p="Native" t="Include">
@@ -282,7 +283,9 @@
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
