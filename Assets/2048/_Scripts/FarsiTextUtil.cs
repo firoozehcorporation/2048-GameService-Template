@@ -14,15 +14,16 @@
 //    limitations under the License.
 // </copyright>
 
+// Used From https://github.com/Konash/arabic-support-unity
+
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-// Used From https://github.com/Konash/arabic-support-unity
-
-namespace FiroozehGameServiceAndroid.Utils
+namespace _2048._Scripts
 {
+   
     public class FarsiTextUtil
     {
         /// <summary>
@@ -872,5 +873,5 @@ internal class ArabicFixerTool
 
 		return false;
 	}
-   
+  
 }

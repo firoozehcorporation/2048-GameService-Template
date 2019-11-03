@@ -79,9 +79,9 @@ namespace _2048._Scripts
         {
            
             var config = new GameServiceClientConfiguration
-                    .Builder(InstanceType.Auto)
-                .SetClientId("Your ClientId")
-                .SetClientSecret("Your ClientSecret")
+                    .Builder(LoginType.Normal)
+                .SetClientId("2048_GameService")
+                .SetClientSecret("mmqo1wf745m7rux8hwyks")
                 .IsLogEnable(true)
                 .IsNotificationEnable(true)
                 .CheckGameServiceInstallStatus(true)
@@ -140,7 +140,6 @@ namespace _2048._Scripts
             FiroozehGameService.Instance.SaveGame(
                 "2048Save"
                 ,"2048SaveGame"
-                ,null
                 ,new Save {Score = ScoreTracker.Score , HighScore = PlayerPrefs.GetInt("HighScore")}
                 ,c=>{},e=>{});
             
@@ -156,7 +155,6 @@ namespace _2048._Scripts
             FiroozehGameService.Instance.SaveGame(
                 "2048Save"
                 ,"2048SaveGame"
-                ,null
                 ,new Save {Score = ScoreTracker.Score , HighScore = PlayerPrefs.GetInt("HighScore")}
                 ,c=>{},e=>{});
             
@@ -460,51 +458,51 @@ namespace _2048._Scripts
         private void checkScore()
         {
             var score = ScoreTracker.Score;
-            if (score >= 200 && !_achievements.Find(a => a.key == "Score_200").earned)
+            if (score >= 200 && !_achievements.Find(a => a.Key == "Score_200").Earned)
             {
-                _achievements.Add(new Achievement{earned = true , key = "Score_200"});
+                _achievements.Add(new Achievement{Earned = true , Key = "Score_200"});
                 FiroozehGameService.Instance.UnlockAchievement("Score_200", c => { }, e => { });
             }
-            else if (score >= 500 && !_achievements.Find(a => a.key == "Score_500").earned)
+            else if (score >= 500 && !_achievements.Find(a => a.Key == "Score_500").Earned)
             {
              
-                _achievements.Add(new Achievement{earned = true , key = "Score_500"});
+                _achievements.Add(new Achievement{Earned = true , Key = "Score_500"});
                 FiroozehGameService.Instance.UnlockAchievement("Score_500", c => { }, e => { });
             }
-            else if (score >= 1000 && !_achievements.Find(a => a.key == "Score_1000").earned)
+            else if (score >= 1000 && !_achievements.Find(a => a.Key == "Score_1000").Earned)
             {
-                _achievements.Add(new Achievement{earned = true , key = "Score_1000"});
+                _achievements.Add(new Achievement{Earned = true , Key = "Score_1000"});
                 FiroozehGameService.Instance.UnlockAchievement("Score_1000", c => { }, e => { });
             }
-            else if (score >= 2000 && !_achievements.Find(a => a.key == "Score_2000").earned)
+            else if (score >= 2000 && !_achievements.Find(a => a.Key == "Score_2000").Earned)
             {
-                _achievements.Add(new Achievement{earned = true , key = "Score_2000"});
+                _achievements.Add(new Achievement{Earned = true , Key = "Score_2000"});
                 FiroozehGameService.Instance.UnlockAchievement("Score_2000", c => { }, e => { });
             }
-            else if (score >= 4000 && !_achievements.Find(a => a.key == "Score_4000").earned)
+            else if (score >= 4000 && !_achievements.Find(a => a.Key == "Score_4000").Earned)
             {
-                _achievements.Add(new Achievement{earned = true , key = "Score_4000"});
+                _achievements.Add(new Achievement{Earned = true , Key = "Score_4000"});
                 FiroozehGameService.Instance.UnlockAchievement("Score_4000", c => { }, e => { });
             }
 
             if (_columns.Any(t => t.Any(t1 => t1.Number == 1024)) &&
-                !_achievements.Find(a => a.key == "one_1024").earned)
+                !_achievements.Find(a => a.Key == "one_1024").Earned)
             {
-                _achievements.Add(new Achievement{earned = true , key = "one_1024"});
+                _achievements.Add(new Achievement{Earned = true , Key = "one_1024"});
                 FiroozehGameService.Instance.UnlockAchievement("one_1024", c => {}, e => {});
             }
             
             if (_columns.Any(t => t.Any(t1 => t1.Number == 512)) &&
-                !_achievements.Find(a => a.key == "one_512").earned)
+                !_achievements.Find(a => a.Key == "one_512").Earned)
             {
-                _achievements.Add(new Achievement{earned = true , key = "one_512"});
+                _achievements.Add(new Achievement{Earned = true , Key = "one_512"});
                 FiroozehGameService.Instance.UnlockAchievement("one_512", c => {}, e => {});
             }
 
             if (!_columns.Any(t => t.Any(t1 => t1.Number == 256)) ||
-                _achievements.Find(a => a.key == "one_256").earned) return;
+                _achievements.Find(a => a.Key == "one_256").Earned) return;
             {
-                _achievements.Add(new Achievement{earned = true , key = "one_256"});
+                _achievements.Add(new Achievement{Earned = true , Key = "one_256"});
                 FiroozehGameService.Instance.UnlockAchievement("one_256", c => {}, e => {});
             }
 
